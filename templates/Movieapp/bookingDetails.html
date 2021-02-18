@@ -1,0 +1,55 @@
+{% load static %}
+<html>
+<head>
+<meta http-equi='content_Type' content ='text/html; Charset=UTF-8'>
+<link href= "{% static 'css/ticketcss.css' %}" rel = 'stylesheet' type='text/css' />
+<link href={% static 'css/ticketcss.css' %} rel = 'stylesheet' type='text/css' />
+
+<title>Enjoy Your Show</title>
+</head>
+<body>
+<link href="{% static 'css/ticketcss.css' %}" rel = 'stylesheet' type='text/css' />
+
+<div class='cardWrap'>
+<h1>{{status}}</h1>
+<div class='cardLeft'>
+<h1>
+Cinema<span>World</span>
+</h1>
+<div class='title'>
+<h2>Movie Name</h2>
+<span>{{bookedshow.bookedshow.movie.MovieName}}</span>
+</div>
+
+<div class='screen'>
+<h2>Screen Name</h2>
+<span>{{bookedshow.bookedshow.screen}}</span>
+</div>
+
+<div class='theater'>
+<h2>Theatre Name, TheatreLocation</h2>
+<span>{{bookedshow.bookedshow.theater}}</span>
+</div>
+
+<div class='date'>
+<h2>Show Date</h2>
+<span>{{bookedshow.bookedshow.showDate}} {{bookedshow.bookedshow.showTime}}</span>
+</div>
+
+<div class='time'>
+<h2>Show Date  Time  Price</h2>
+<span>{{bookedshow.bookingDate}} <b>&#837 {{bookedshow.totalPrice}}</b></span>
+</div>
+
+<div class='cardRight'>
+<div class='eye'></div>
+<div class='number'>
+<h3 id= 'seat'>Booking Seats</h3>
+<span>{{bookedshow.bookedSeats}}</span>
+</div>
+<div class='barcode'></div>
+
+</div>
+</div>
+</body>
+</html> 

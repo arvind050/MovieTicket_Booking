@@ -1,0 +1,140 @@
+{% load static %}
+{% include 'Movieapp/header.html' %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Movie Form</title>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	</head >
+	<body style=>
+	
+				<div class="">
+
+		<form action="addmovie" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<fieldset>
+		<br/><br/><br/>
+			<legend><b>Add Movies</b></legend>
+			<table style=width:550px;margin:auto;cellpadding:10px>
+				<tr>
+					<td>
+						<label>Movie Name</label>
+					</td>
+					<td>
+					<input type="text" name="MovieName" placeholder="Name" value=""><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Movie type</label>
+					</td>
+					<td>
+					<select name="MovieType">
+					<option value=""selected>select</option>
+					<option value="Horror">Horror</option>
+					<option value="Animation">Animation</option>
+					<option value="Comedy">Comedy</option>
+					<option value="Sci-Fi">Sci-Fi</option>
+					</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Movie Language</label>
+					</td>
+					<td>
+					<select name='MovieLanguage'>
+					<option value=" " selected>select</option>
+					<option value="English">English</option>
+					<option value="Hindi">Hindi</option>
+					<option value="Marathi">Marathi</option>
+					</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Movie Cast</label>
+					</td>
+					<td>
+					<input type="text" name='MovieCast' placeholder="Cast" value=""><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Movie Producer</label>
+					</td>
+					<td>
+					<input type="text" name='MovieProducer' placeholder="Movie Producer" value=""><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Movie Director</label>
+					</td>
+					<td>
+					<input type="text" name='MovieDiector' placeholder="Movie Director" value=""><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Movie Duration</label>
+					</td>
+					<td>
+					<input type="text" name='MovieDuratiuon' placeholder="Duration" value=""><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Release Date</label>
+					</td>
+					<td>
+					<input type="text" name='ReleaseDate' placeholder="YY-MM-DD" value=""><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Movie Image</label>
+					</td>
+					<td>
+					<input type="file" name="MovieImage"><br>
+					</td>
+				</tr>
+			
+				<tr>
+					<td>
+						<label>Movie Description</label>
+					</td>
+					<td>
+					<textarea name="MovieDescription" rows="5" cols="25"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left">
+						<input type="Submit" value="Add Movie"/>
+						<input type="reset" value="Clear"/>
+					</td>
+				</tr>
+				<tr>
+				<td colspan="2">
+				{{status}}
+				</td>
+				</tr>
+			</table>
+			
+			</fieldset>
+			
+		</form>
+					</div>
+	{% include 'Movieapp/footer.html' %}				
+	</body>
+	<br/><br/>
+			
+</html

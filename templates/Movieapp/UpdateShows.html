@@ -1,0 +1,111 @@
+ {% load static %}
+{% include 'Movieapp/header.html' %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Show Form</title>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	</head >
+	<body style=>
+	
+				<div class="">
+
+            <form action="UpdateShows{{show.showId}}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<fieldset>
+		<br/><br/><br/>
+			<legend><b>Update Show</b></legend>
+			<table style=width:550px;margin:auto;cellpadding:10px>
+				<tr>
+					<td>
+						<label>Select Movie</label>
+					</td>
+					<td>
+					<select name = 'movie'>
+					<option value=''>Select</option>
+					{% for movie in movielist %}
+					<option value="{{movie.MovieId}}" {% if show.movie.MovieId == movie.MovieId %} Selected {% endif %}>{{movie.MovieName}}</option>
+					 {% endfor %}
+					</select>
+					</td>
+				</tr>
+
+                <tr>
+					<td>
+						<label>Theater</label>
+					</td>
+					<td>
+					<input type="text" name="theater" value="{{show.theater}}"><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Screen</label>
+					</td>
+					<td>
+					<select name="screen">
+					<option value="">select</option>
+					<option value="screen1" {% if show.screen == screen1 %} Selected {% endif %}>screen1</option>
+					<option value="screen2" {% if show.screen == screen2 %} Selected {% endif %}>screen2</option>
+					<option value="screen3" {% if show.screen == screen3 %} Selected {% endif %}>screen3</option>
+					<option value="screen4" {% if show.screen == screen4 %} Selected {% endif %}>screen4</option>
+					<option value="screen5" {% if show.screen == screen5 %} Selected {% endif %}>screen5</option>
+
+					</select>
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td>
+						<label>Show Date</label>
+					</td>
+					<td>
+					<input type="text" name='showDate'  value="{{show.showDate}}"><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Show Time</label>
+					</td>
+					<td>
+					<input type="text" name='showTime' value="{{show.showTime}}"><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Show Price</label>
+					</td>
+					<td>
+					<input type="text" name='showPrice' value="{{show.showPrice}}"><br>
+					</td>
+				</tr>
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left">
+						<input type="Submit" value="Update"/>
+						<input type="reset" value="Clear"/>
+					</td>
+				</tr>
+				<tr>
+				<td colspan="2">
+				{{status}}
+				</td>
+				</tr>
+			</table>
+			
+			</fieldset>
+			
+		</form>
+					</div>
+	{% include 'Movieapp/footer.html' %}				
+	</body>
+	<br/><br/>
+			
+</html

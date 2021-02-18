@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{%static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body>
+<form actiom='addcustomer' method='post' enctype='multipart/form-data'>
+{% csrf_token %}
+    <div class="main">
+
+        <div class="container">
+            <div class="booking-content">
+                <div class="booking-image">
+                    <img class="booking-img" src="{% static 'images/form-img.jpg' %}" alt="Booking Image">
+                </div>
+                <div class="booking-form">
+                    <form id="booking-form">
+                        <h2>Customer registration!</h2>
+                        <div class="form-group form-input">
+                            <input type="text" name="custName" id="name" value="" required/>
+                            <label for="name" class="form-label">Your First name</label>
+                        </div>
+                        <div class="form-group form-input">
+                            <input type="text" name="custLname" id="phone" value="" required />
+                            <label for="phone" class="form-label">Your Last Name</label>
+                        </div>
+
+                        <div class="form-group form-input">
+                            <input type="text" name="custEmail" id="phone" value="" required />
+                            <label for="phone" class="form-label">Enter Your EmailId</label>
+                        </div>
+
+                        <div class="form-group form-input">
+                            <input type="password" name="custPassword" id="phone" value="" required />
+                            <label for="phone" class="form-label">Enter Password</label>
+                        </div>
+                        <div class="form-group form-input">
+                            <input type="number" name="custContact" id="phone" value="" required />
+                            <label for="phone" class="form-label">Your phone number</label>
+                        </div>
+
+                        <div class="form-group form-input">
+                            <textarea rows=3 cols=25 name="custAddress" id="phone" value="" required placeholder=></textarea>
+                            <label for="phone" class="form-label">Enter Your Address</label>
+                        </div>
+                        
+                        
+
+                        <div class="form-submit">
+                            <input type="submit" value="Submit" class="submit" id="submit" name="submit" />
+                            <a href="#" class="vertify-booking">Verify your booking info from your phone</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    </form>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

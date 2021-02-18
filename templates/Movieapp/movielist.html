@@ -1,0 +1,52 @@
+{% load static %}
+{% include 'Movieapp/header.html' %}
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<div class = 'table' style=width:100%;cellpadding:10px;margin:10px>
+<table style="width:100%;border=1;font-size:22px">
+<caption>Movie list</caption>
+<tbody style="font-size:18px">
+<thead>
+<th>Id</th>
+<th>Name</th>
+<th>Type</th>
+<th>Image</th>
+<th>Language</th>
+<th>Cast</th>
+<th>Duration</th>
+<th>Date</th>
+
+</thead>
+</tbody>
+{% for  movie in movielist %}
+<tr style=font-size:18px;color:green;align:left;width:80px>
+<td>{{movie.MovieId}}</td>
+<td>{{movie.MovieName}}</td>
+<td>{{movie.MovieType}}</td>
+<td style=><img src ="{{movie.MovieImage.url }}" style="width:50px;height:50px"></td>
+
+<td>{{movie.MovieLanguage}}</td>
+<td>{{movie.MovieCast}}</td>
+<td>{{movie.MovieDuration}}</td>
+<td>{{movie.ReleaseDate}}</td>
+
+<td><a href = "deletemovie{{movie.MovieId}}">Delete</a></td>
+<td><a href = "updatemovie{{movie.MovieId}}">Edit</a></td>
+
+{% endfor %}
+<tbody>
+<tfoot>
+<tr>
+<th colspan="5">{{status}}</th>
+</tr>
+</tfoot>
+</tbody>
+
+</tr>
+</div>
+</table>
+</body>
+</html>

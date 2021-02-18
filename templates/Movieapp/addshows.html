@@ -1,0 +1,111 @@
+ {% load static %}
+{% include 'Movieapp/header.html' %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Show Form</title>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	</head >
+	<body style=>
+	
+				<div class="">
+
+		<form action="addshows" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<fieldset>
+		<br/><br/><br/>
+			<legend><b>Add New Shows</b></legend>
+			<table style=width:550px;margin:auto;cellpadding:10px>
+				<tr>
+					<td>
+						<label>Select Movie</label>
+					</td>
+					<td>
+					<select name = 'movie'>
+					<option value=''>Select</option>
+					{% for movie in movielist %}
+					<option value="{{movie.MovieId}}">{{movie.MovieName}}</option>
+					{% endfor %}
+					</select>
+					</td>
+				</tr>
+
+                <tr>
+					<td>
+						<label>Theater</label>
+					</td>
+					<td>
+					<input type="text" name="theater" value=""><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Screen</label>
+					</td>
+					<td>
+					<select name="screen">
+					<option value=""selected>select</option>
+					<option value="screen1">screen1</option>
+					<option value="screen2">screen2</option>
+					<option value="screen3">screen3</option>
+					<option value="screen4">screen4</option>
+					<option value="screen5">screen5</option>
+
+					</select>
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td>
+						<label>Show Date</label>
+					</td>
+					<td>
+					<input type="text" name='showDate'  value=""><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Show Time</label>
+					</td>
+					<td>
+					<input type="text" name='showTime' value=""><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Show Price</label>
+					</td>
+					<td>
+					<input type="text" name='showPrice' value=""><br>
+					</td>
+				</tr>
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left">
+						<input type="Submit" value="Add Show"/>
+						<input type="reset" value="Clear"/>
+					</td>
+				</tr>
+				<tr>
+				<td colspan="2">
+				{{status}}
+				</td>
+				</tr>
+			</table>
+			
+			</fieldset>
+			
+		</form>
+					</div>
+	{% include 'Movieapp/footer.html' %}				
+	</body>
+	<br/><br/>
+			
+</html

@@ -1,0 +1,48 @@
+
+{% include 'Movieapp/header.html' %}
+
+<div class="table" style="width:100%;margin:20px;">
+    <table border="1" align="center" style="width:100%;" cellpadding="10px">
+        <caption>Show List</caption>
+        <thead>
+        <tr style="font-size:22px;">
+            <th>ID</th>
+            <th>IMAGE</th>
+            <th>Movie NAME</th>
+            <th>Theatre</th>
+            <th>Show Date</th>
+            <th>Show Time</th>
+            <th>Show Price</th>
+            <th>ACTION</th> <!-- last th -->
+        </tr>
+        </thead>
+        <tbody style="font-size:18px;color:green;">
+        {% for show in showlist %}
+            <tr align="center">
+                <td>{{show.showId}}</td>
+                <td><img src="{{show.movie.MovieImage.url}}" width="100px" height="100px"/></td>
+                <td>{{show.movie.MovieName}}</td>
+                <td>{{show.theater}}</td>
+                <td>{{show.showDate}}</td>
+                <td>{{show.showTime}}</td>
+                <td>{{show.showPrice}}</td>
+                <td>
+                    {% if request.session.admin != None %}
+                    <a href="deleteshows{{show.showId}}">Delete</a> |
+                    <a href="UpdateShows{{show.showId}}">Edit</a>
+                    {% endif %}
+                    {% if request.session.customer != None %}
+                    <a href="bookshowSeats{{show.showId}}">Book</a> 
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="5">{{status}}</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+{% include 'Movieapp/footer.html' %}

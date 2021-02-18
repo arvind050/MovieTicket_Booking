@@ -1,0 +1,146 @@
+
+
+{% include 'Movieapp/header.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Movie Form</title>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	</head >
+	<body style=>
+	
+				<div class="">
+
+		<form action="updatemovie{{updatemovie.MovieId}}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<fieldset>
+		<br/><br/><br/>
+			<legend><b>Update Movie</b></legend>
+			<table style=width:550px;margin:auto;cellpadding:10px>
+				<tr>
+                <td><label>Id:</label></td>
+				<td><input type='text' name='MovieId' id='MovieId' value="{{updatemovie.MovieId}}" readonly></td>
+                </tr>
+                <tr>
+
+					<td>
+						<label>Name:</label>
+					</td>
+					<td>
+					<input type="text" name="MovieName" placeholder="Name" value="{{updatemovie.MovieName}}"><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Type</label>
+					</td>
+					<td>
+					<select name="MovieType">
+					<option value='Action' { %if updatemovie.MovieType=='Action'% }Selected{ % endif % }>Action</option>
+					<option value="Horror">Horror</option>
+					<option value="Animation">Animation</option>
+					<option value="Comedy">Comedy</option>
+					<option value="Sci-Fi">Sci-Fi</option>
+					</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Language:</label>
+					</td>
+					<td>
+					<select name='MovieLanguage'>
+					<option value="English"{if updatemovie.MovieType =='English'}Selected{ % endif % }>English</option>
+					<option value="Hindi">Hindi</option>
+					<option value="Marathi">Marathi</option>
+					</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Movie Cast</label>
+					</td>
+					<td>
+					<input type="text" name='MovieCast' placeholder="Cast" value="{{updatemovie.MovieCast}}"><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Movie Producer</label>
+					</td>
+					<td>
+					<input type="text" name='MovieProducer' placeholder="Movie Producer" value="{{updatemovie.MovieProducer}}"><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Movie Director</label>
+					</td>
+					<td>
+					<input type="text" name='MovieDiector' placeholder="Movie Director" value="{{updatemovie.MovieDirector}}"><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Movie Duration</label>
+					</td>
+					<td>
+					<input type="text" name='MovieDuratiuon' placeholder="Duration" value="{{updatemovie.MovieDuration}}"><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Release Date</label>
+					</td>
+					<td>
+					<input type="text" name='ReleaseDate' placeholder="YY-MM-DD" value="{{updatemovie.ReleaseDate}}"><br>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Movie Image</label>
+					</td>
+					<td>
+					<input type="file" name="MovieImage" value="{{updatemovie.MovieImage}}"><br>
+					</td>
+				</tr>
+			
+				<tr>
+					<td>
+						<label>Movie Description</label>
+					</td>
+					<td>
+					<textarea name="MovieDescription" rows="5" cols="25" value="{{updatemovie.MovieDescription}}"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left">
+						<input type="Submit" value="Update Movie"/>
+						<input type="reset" value="Clear"/>
+					</td>
+				</tr>
+				<tr>
+				<td colspan="2">
+				</td>
+				</tr>
+			</table>
+			
+			</fieldset>
+			
+		</form>
+					</div>
+	{% include 'Movieapp/footer.html' %}				
+	</body>
+	<br/><br/>
+			
+</html
